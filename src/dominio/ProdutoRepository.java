@@ -25,12 +25,28 @@ public class ProdutoRepository {
         return null;
     }
 
-    public boolean atualizar(int id, String novoNome, double novoPreco){
-        //Por que tem que fazer isso? não entendi
+    public String atualizar(int id, String novoNome, double novoPreco){
+        //Aqui eu chamo o metodo buscar, para listar e escolher pelo id e jogar dentro da variável referencial do tipo Produto.
+        String msg;
         Produto produto = buscarPorId(id);
-
+        if(produto != null){
+            produto.setNome(novoNome);
+            produto.setPreco(novoPreco);
+            msg = "Produto atualizado com sucesso!";
+            return msg;
+        }
+        msg = "Produto não atualizado!";
+        return msg ;
     }
 
-
-
+    public String excluir(int id){
+        Produto produto = buscarPorId(id);
+        if(produto != null){
+            produtos.remove(produto);
+            return "Produto removido com sucesso!";
+        }else {
+            return "Produto não removido";
+        }
+    }
+    
 }
