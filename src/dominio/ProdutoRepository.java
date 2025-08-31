@@ -8,7 +8,7 @@ public class ProdutoRepository {
     private int proximoId = 1;
 
     public void adicionar(Produto produto){
-        produto = new Produto(proximoId, produto.getNome(), produto.getPreco());
+        produto = new Produto(proximoId++, produto.getNome(), produto.getPreco());
         produtos.add(produto);
     }
 

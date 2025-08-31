@@ -38,10 +38,37 @@ public class Main {
                     }
                     break;
                 case 3:
+                    System.out.println("Atualizar Produto:");
+                    System.out.println("ID do produto: ");
+                    int id = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Novo nome: ");
+                    nome =  sc.nextLine();
+                    System.out.println("Novo preço:");
+                    preco = sc.nextDouble();
+                    if (service.atualizarProduto(id, nome, preco)) {
+                        System.out.println("Produto atualizado com sucesso!");
+                    }else{
+                        System.out.println("Produto não encontrado!");
+                    }
+                    break;
                 case 4:
-                case 0:
-                default:
+                    System.out.println("ID do produto: :");
+                    id = sc.nextInt();
+                    sc.nextLine();
+                    if (service.excluirProduto(id)){
+                        System.out.println("Produto excluido com sucesso!");
+                    }else {
+                        System.out.println("Produto não  encontrado!");
+                    }
+                    break;
 
+                case 0:
+                    System.out.println("Opcao encerrada!");
+                    break;
+                default:
+                    System.out.println("Opção não encontrada!");
+                    break;
             }
         }while(opc != 0);
     }
